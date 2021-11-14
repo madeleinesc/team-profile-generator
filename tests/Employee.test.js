@@ -25,7 +25,6 @@ describe("getId", () => {
         const employee = new Employee("Neo", 1, "neo@gmail.com");
         const employeeId = employee.getId();
 
-        //expect(employeeId).toBe("1");
     })
 })
 
@@ -36,5 +35,14 @@ describe("getEmail", () => {
         const employeeEmail = employee.getEmail();
 
         expect(employeeEmail).toBe("neo@gmail.com");
+    })
+})
+
+// to get role
+describe("getRole", () => {
+    test("Should return employee role", () => {
+        const employee = new Employee("Neo", 1, "neo@gmail.com");
+
+        expect(employee.getRole()).toEqual("Employee");
     })
 })

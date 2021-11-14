@@ -1,0 +1,42 @@
+body {
+    background-color: #011f4b;
+}
+
+.header-bg{
+    background-color: #03396c;  
+    color: whitesmoke;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    border-color: #03396c;
+    border-radius: 20px;;
+}
+
+.card-header {
+    height: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #005b96;
+    color: whitesmoke;
+}
+
+.card-body {
+    justify-content: center;
+    height: 180px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.footer-bg{
+    background-color: #03396c;  
+    color: whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+

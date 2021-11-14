@@ -1,5 +1,5 @@
-// Employee module exported to Intern.js for use as parent class
-const Employee = require("./lib/Employee.js");
+// Employee module export
+const Employee = require("../lib/Employee.js");
 
 // to make sure constructor is working
 describe('make sure employee constructor is working', () => {

@@ -1,7 +1,7 @@
-// html template for generation
+// html template
 
 // top of page
-htmlStart = 
+const htmlStart = 
 `<!DOCTYPE html>
 
 <head>
@@ -35,24 +35,71 @@ htmlStart =
     <div class="container">
         <div class="row">`;
 
-// bottom of page
-htmlEnd = `<footer class="footer footer-bg" style="width: 100%;">
-        <div class="text-white text-center">
-            <h6>Created & Developed by Madeleine Cosway</h6>
-        </div>
-    </footer>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-</body>
 
-</html>`;
+
+// function to create bootstrap card
+createCard = (role, name, email, id, specialAttr) => {
+    return `<div class="col-sm-4 mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h5>${name}</h5>
+            <h6><i>${role} </i></h6>
+        </div>
+        <div class="card-body">
+            <p class="subtitle">ID: ${id}</p>
+            <p class="subtitle">Email: ${email}</p>
+            <p class="subtitle">${specialAttr}</p>
+        </div>
+    </div>
+</div>`
+}
+
+
+// function to create special attribute part of card
+createEmployeeCard = (employee) => {
+     const role = employee.getRole();
+    let specialAttr;
+
+    // if manager, need office number
+    if (role === 'Manager'){
+        specialAttr = 'Office Number: ' + employee.getOfficeNo();
+    }
+
+    // if engineer, need github username
+    if (role === 'Engineer'){
+        specialAttr = 'Github: ' + employee.getGithub();
+    }
+
+    // if intern, need school name
+    if (role === 'Intern'){
+        specialAttr = 'School: ' + employee.getSchool();
+    }
+
+    return createCard(role, employee.getName(), employee.getEmail(), employee.getId(), specialAttr );
+
+}
+
+
+// to generate the team profile html
+generateHtml = (teamArray) => {
+    let html = htmlStart;
+    
+    // loop through the teamArray
+    for (let index = 0; index < teamArray.length; index++) {
+        // create a card for each team member 
+        // to join all the cards together
+        const employee = teamArray[index];
+        const card = createEmployeeCard(employee);
+        html += card;
+    }
+
+    return html;
+}
+
 
 // export module 
 module.exports = {
-    htmlStart,
-    htmlEnd,
+    generateHtml
 };
 
 

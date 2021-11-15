@@ -1,6 +1,7 @@
 // packages needed 
 const inquirer = require('inquirer');
 const fs = require('fs'); // to read/write files
+const path = require('path');
 
 
 // module exports
@@ -8,9 +9,7 @@ const Employee = require("./lib/Employee.js");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
-
-// for generate markdown html -> to create webpage
-//const generateHTML = require("./src/generateHTML.js"); 
+const { generateHtml } = require('./src/generateHTML.js');
 
 
 
@@ -74,8 +73,11 @@ async function teamProfile() {
                 addEngineer();
             } else if (data.role === "Intern") {
                 addIntern();
-                } else if (data.role === "I am finished adding to the team profile") {
-                    gethtml();
+                } else if (data.role === "I am finished adding to the team profile.") {
+                    const html = generateHtml(teamArray);
+                    console.log(html);
+                    const outputPath = path.join(__dirname, 'dist', 'output.html');
+                    fs.writeFileSync(outputPath, html);
                 }
         })
     };
@@ -147,8 +149,6 @@ async function teamProfile() {
         addManager();
     };
     profilePrompt();
-
-    
 }
 
 

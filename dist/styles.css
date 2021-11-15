@@ -2,6 +2,10 @@ body {
     background-color: #011f4b;
 }
 
+h5 {
+    font-size: 25px;
+}
+
 .header-bg{
     background-color: #03396c;  
     color: whitesmoke;
@@ -12,11 +16,10 @@ body {
 
 .card {
     border-color: #03396c;
-    border-radius: 20px;;
 }
 
 .card-header {
-    height: 80px;
+    height: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #005b96;
@@ -32,11 +35,4 @@ body {
     color: black;
 }
 
-.footer-bg{
-    background-color: #03396c;  
-    color: whitesmoke;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
-}
 

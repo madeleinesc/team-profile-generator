@@ -48,8 +48,10 @@ async function teamProfile() {
             const { name, id, email, officeNumber } = managerInput;
             const manager = new Manager (name, id, email, officeNumber);
     
-            teamProfile.push(manager);
+            teamArray.push(manager);
             console.log(manager);
+
+            addEmployee();
         })
     };
 
@@ -69,9 +71,9 @@ async function teamProfile() {
         ])
         .then(data => {
             if (data.role === "Engineer") {
-                engineer();
+                addEngineer();
             } else if (data.role === "Intern") {
-                intern();
+                addIntern();
                 } else if (data.role === "I am finished adding to the team profile") {
                     gethtml();
                 }
